@@ -10,7 +10,7 @@ https://drive.google.com/drive/folders/1FheNj4ZSXVjgR5kdbHasdw1dvR1lik5T?usp=sha
 
 
 #macro
-You can use two macro weight_reco.C and weight_test.C to generate the plots as well as the energy resolution.
+You can use two macro weight_layers_reco.C and weight_layers_test.C to generate the plots as well as the energy resolution.
 
 
 #code
