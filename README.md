@@ -19,8 +19,8 @@ to generate the plots as well as root files, and it will print out the energy re
 
 # code
 1.
- WScFi_ECalTowersMT is a geometry we have 796 fibers for each EMCal sector. Fe/Sc is 20/3 mm with 52 layers
+ WScFi_ECalTowersMT is a geometry we have 796 fibers for each EMCal tower. Fe/Sc is 20/3 mm with 52 layers
 
 2.
- WScFi_mixture is a geometry we have simplified structude for each EMCal sector. Fe/Sc is 20/3 mm with 52 layers
+ WScFi_mixture is a geometry we have simplified structude for each EMCal tower. Fe/Sc is 20/3 mm with 52 layers
 
