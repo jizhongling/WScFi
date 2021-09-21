@@ -12,8 +12,8 @@ https://drive.google.com/drive/folders/1FheNj4ZSXVjgR5kdbHasdw1dvR1lik5T?usp=sha
 # macro
 
 You can use two macro 
-1 weight_layers_reco.C and 
-2 weight_layers_test.C 
+ 1 weight_layers_reco.C and 
+ 2 weight_layers_test.C 
 to generate the plots as well as root files, and it will print out the energy resolution.
 
 
