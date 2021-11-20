@@ -132,7 +132,7 @@ void B4cEventAction::BeginOfEventAction(const G4Event* event)
   //   = G4TransportationManager::GetTransportationManager()->GetFieldManager();
   G4int eventID = event->GetEventID();
   if ( eventID % fPrintModulo == 0 )  { 
-    G4cout << "---> Begin of event: " << eventID+1 << G4endl;
+    //G4cout << "---> Begin of event: " << eventID+1 << G4endl;
     //CLHEP::HepRandom::showEngineStatus();
     StepAction->initialize(eventID);
 
@@ -149,6 +149,9 @@ void B4cEventAction::BeginOfEventAction(const G4Event* event)
 
 void B4cEventAction::EndOfEventAction(const G4Event* event)
 {  
+  // get analysis manager
+  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+
   // Get hits collections
 
     B4cCalorHitsCollection* absoHC[6][6];
@@ -189,6 +192,7 @@ void B4cEventAction::EndOfEventAction(const G4Event* event)
 	B4cCalorHit* absoEMHit[24][24];
 //	B4cCalorHit* gapEMHit[24][24];
 
+        G4double absoEMenergy = 0.;
    	for(int i=0;i<24;i++){
        		for(int j=0;j<24;j++){
 
@@ -199,11 +203,15 @@ void B4cEventAction::EndOfEventAction(const G4Event* event)
 //		gapEMHC[i][j]=GetHitsCollection(buffer2,event);
 		absoEMHit[i][j]=(*absoEMHC[i][j])[absoEMHC[i][j]->entries()-1];
 //		gapEMHit[i][j]=(*gapEMHC[i][j])[gapEMHC[i][j]->entries()-1];
+                absoEMenergy += absoEMHit[i][j]->GetEdep();
 
 		}
 	}
 
 
+        analysisManager->FillNtupleDColumn(0, 0, absoEMenergy);
+        analysisManager->AddNtupleRow(0);
+/*
   // Print per event (modulo n)
   //
 
@@ -239,6 +247,7 @@ void B4cEventAction::EndOfEventAction(const G4Event* event)
 	
 	}
  G4cout << "---> End of event: " << eventID+1 << G4endl;
+*/
 
 
 //G4int eventID =event->GetEventID();
@@ -247,7 +256,7 @@ void B4cEventAction::EndOfEventAction(const G4Event* event)
   //
 
   // get analysis manager
-  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  //G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
  //G4double EmEdep  = StepAction->GetEdepEM("FCALEM");
   // fill histograms
   //analysisManager->FillH1(1, EmEdep);

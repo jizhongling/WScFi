@@ -43,13 +43,16 @@ B4RunAction::B4RunAction()
  : G4UserRunAction()
 { 
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-  analysisManager->SetFirstHistoId(1);
+  analysisManager->SetNtupleMerging(true);
+  // Note: merging ntuples is available only with Root output
+
+  //analysisManager->SetFirstHistoId(1);
     // Creating histograms
   //
-  analysisManager->CreateH1("1","Edep in absorber", 100, 0., 800*MeV);
-  analysisManager->CreateH1("2","Edep in gap", 100, 0., 100*MeV);
-  analysisManager->CreateH1("3","trackL in absorber", 100, 0., 1*m);
-  analysisManager->CreateH1("4","trackL in gap", 100, 0., 50*cm);
+  //analysisManager->CreateH1("1","Edep in absorber", 100, 0., 800*MeV);
+  //analysisManager->CreateH1("2","Edep in gap", 100, 0., 100*MeV);
+  //analysisManager->CreateH1("3","trackL in absorber", 100, 0., 1*m);
+  //analysisManager->CreateH1("4","trackL in gap", 100, 0., 50*cm);
  
   // Creating ntuple
   //
@@ -93,8 +96,11 @@ void B4RunAction::BeginOfRunAction(const G4Run* run)
   
   // Open an output file
   //
-  G4String fileName = "B4";
-  analysisManager->OpenFile(fileName);
+  //G4String fileName = "B4";
+  //analysisManager->OpenFile(fileName);
+
+  // Open an output file
+  analysisManager->OpenFile(analysisManager->GetFileName()); // File name set via macro
 
 }
 

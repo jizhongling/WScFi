@@ -10,13 +10,14 @@
 /process/verbose 0
 /run/particle/verbose 0
 /vis/verbose 0
+/analysis/setFileName e+_60GeV
 
 /run/initialize
 
 /gps/verbose 0
 /control/cout/useBuffer 
 /run/setCut .01 mm
-/gps/particle pi0
+/gps/particle e-
 /gps/ene/type Mono
 /gps/ene/mono 60 GeV
 /gps/pos/type Plane
@@ -30,4 +31,4 @@
 
 /globalField/setValue 0 0 0 tesla
 
-/run/beamOn 100
+/run/beamOn 5000
