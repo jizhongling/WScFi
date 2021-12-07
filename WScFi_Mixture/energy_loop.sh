@@ -20,7 +20,7 @@ sed -i "s/\/gps\/particle .*/\/gps\/particle ${particle}/" $filename
 sed -i "s/\/gps\/ene\/mono .*/\/gps\/ene\/mono ${energies[k]} GeV/" $filename
 sed -i "s/\/run\/beamOn .*/\/run\/beamOn ${num_events}/" $filename
 ../build/exampleB4c -m mymac_WScFi.mac -t ${num_threads}
-mv out.root ../${particle}_FTFP/${particle}_${energies[k]}GeV_homo.root
+mv out.root ../${particle}_FTFP/${particle}_${energies[k]}GeV.root
 
 cd ..
 rm -rf proc$1
